@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="SingleEle.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SingleEle"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
+            <!--<Button Content="click" Name="Trigger" Click="Trigger_OnClick"/>-->
+            <PersonPicture 
+                Name="UserAvatar"
+                ProfilePicture="Assets/apple.jpg" 
+                DisplayName="Jane Doe"
+                CanDrag="True"
+                Width="200" 
+                Height="200"
+            />
+            <StackPanel 
+                        Name="PlaceToDragDrop" Width="150" Height="150" 
+                        BorderBrush="BlanchedAlmond"
+                        BorderThickness="0"
+                        AllowDrop="True"
+                        DragOver="PlaceToDragDrop_OnDragOver"
+                DragLeave="PlaceToDragDrop_OnDragLeave"
+                        Drop="PlaceToDragDrop_OnDrop"
+                        Background="#FFB9B9B9">
+                <Rectangle Stroke="#FFA9A9A9" Width="150" Height="150"
+                           StrokeThickness="5" StrokeDashArray="3.5">
+                </Rectangle>
+            </StackPanel>
+            <Button Grid.Column="1" 
+                    Name="UploadButton"
+                    Click="Upload_Button_OnClick"
+                    Padding="5" 
+                    BorderThickness="1" 
+                    BorderBrush="Gray"
+                    IsTapEnabled="False">
+                <SymbolIcon Symbol="Forward" Foreground="Gray" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
